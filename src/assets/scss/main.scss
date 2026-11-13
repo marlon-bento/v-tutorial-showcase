@@ -1,0 +1,80 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* Suporte às cores primárias dinâmicas selecionadas no ModalConfig.vue */
+:root {
+  --tblr-font-sans-serif: 'Fira Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-bs-theme-primary='blue'] {
+  --tblr-primary: #206bc4;
+  --tblr-primary-rgb: 32, 107, 196;
+  --tblr-primary-lt: rgba(32, 107, 196, 0.12);
+}
+[data-bs-theme-primary='azure'] {
+  --tblr-primary: #4299e1;
+  --tblr-primary-rgb: 66, 153, 225;
+  --tblr-primary-lt: rgba(66, 153, 225, 0.12);
+}
+[data-bs-theme-primary='indigo'] {
+  --tblr-primary: #4263eb;
+  --tblr-primary-rgb: 66, 99, 235;
+  --tblr-primary-lt: rgba(66, 99, 235, 0.12);
+}
+[data-bs-theme-primary='purple'] {
+  --tblr-primary: #ae3ec9;
+  --tblr-primary-rgb: 174, 62, 201;
+  --tblr-primary-lt: rgba(174, 62, 201, 0.12);
+}
+[data-bs-theme-primary='pink'] {
+  --tblr-primary: #d6336c;
+  --tblr-primary-rgb: 214, 51, 108;
+  --tblr-primary-lt: rgba(214, 51, 108, 0.12);
+}
+[data-bs-theme-primary='red'] {
+  --tblr-primary: #d63939;
+  --tblr-primary-rgb: 214, 57, 57;
+  --tblr-primary-lt: rgba(214, 57, 57, 0.12);
+}
+[data-bs-theme-primary='orange'] {
+  --tblr-primary: #f76707;
+  --tblr-primary-rgb: 247, 103, 7;
+  --tblr-primary-lt: rgba(247, 103, 7, 0.12);
+}
+[data-bs-theme-primary='yellow'] {
+  --tblr-primary: #f59f00;
+  --tblr-primary-rgb: 245, 159, 0;
+  --tblr-primary-lt: rgba(245, 159, 0, 0.12);
+}
+[data-bs-theme-primary='lime'] {
+  --tblr-primary: #74b816;
+  --tblr-primary-rgb: 116, 184, 22;
+  --tblr-primary-lt: rgba(116, 184, 22, 0.12);
+}
+[data-bs-theme-primary='green'] {
+  --tblr-primary: #2fb344;
+  --tblr-primary-rgb: 47, 179, 68;
+  --tblr-primary-lt: rgba(47, 179, 68, 0.12);
+}
+[data-bs-theme-primary='teal'] {
+  --tblr-primary: #0ca678;
+  --tblr-primary-rgb: 12, 166, 120;
+  --tblr-primary-lt: rgba(12, 166, 120, 0.12);
+}
+[data-bs-theme-primary='cyan'] {
+  --tblr-primary: #17a2b8;
+  --tblr-primary-rgb: 23, 162, 184;
+  --tblr-primary-lt: rgba(23, 162, 184, 0.12);
+}
+
+.img-full {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.img-sm {
+  width: 32px;
+  height: 32px;
+  display: block;
+}

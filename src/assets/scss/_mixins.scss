@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+@mixin add-hover-menu-color {
+  background-color: $background-menu-hover-ligth;
+  [data-bs-theme='dark'] & {
+    background-color: $background-menu-hover-dark !important;
+  }
+}
