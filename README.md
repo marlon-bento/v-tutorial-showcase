@@ -1,3 +1,5 @@
+<img width="1000" height="562" alt="v-tutorial" src="https://github.com/user-attachments/assets/ec106114-4da2-4358-9159-fde748cc29ff" />
+
 # OdontoTec — v-tutorial Interactive Showcase
 
 [![Live Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://marlon-bento.github.io/v-tutorial-showcase/)
