@@ -1,60 +1,97 @@
 # OdontoTec — v-tutorial Interactive Showcase
 
-> **English Summary:** Interactive live demo and reference implementation for the **[v-tutorial](https://www.npmjs.com/package/v-tutorial)** Vue 3 library. Built as a fictional dental clinic management system (**OdontoTec**), this showcase demonstrates declarative guided onboarding (`<TutorialProvider>` and `<VTutorialStep>`), real user interaction steps (`wait-click`), route-aware transitions, mobile-first responsive breakpoints, custom registered actions, and 5 dynamic workspace layouts.
+[![Live Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://marlon-bento.github.io/v-tutorial-showcase/)
+[![Vue 3](https://img.shields.io/badge/Vue.js-3.5-4FC08D?logo=vue.js)](https://vuejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![v-tutorial](https://img.shields.io/badge/v--tutorial-1.0.0-206bc4)](https://www.npmjs.com/package/v-tutorial)
+
+> 🇧🇷 **Português:** Prefere ler em português? [Acesse a documentação em Português (README.pt-BR.md)](./README.pt-BR.md).
 
 ---
 
-## Sobre o Projeto
+## Overview
 
-O **OdontoTec** é uma aplicação de demonstração desenvolvida em **Vue 3**, **TypeScript**, **Pinia** e **Tabler UI** para apresentar na prática todos os recursos da biblioteca **[v-tutorial](https://www.npmjs.com/package/v-tutorial)**.
+**OdontoTec** is an interactive showcase and reference application built with **Vue 3**, **TypeScript**, **Pinia**, and **Tabler UI** to demonstrate the full capabilities of the **[v-tutorial](https://www.npmjs.com/package/v-tutorial)** library in a realistic production-like environment.
 
-Em vez de um exemplo estático simples, este projeto simula um painel clínico integrado real — com Agenda Clínica, Prontuário Digital, Odontograma 3D, Raio-X Panorâmico, Esterilização e Ficha de Triagem — onde o usuário aprende a usar o sistema clicando nos próprios elementos da interface em tempo real.
+Instead of a minimal static example, this project simulates an integrated dental clinic workspace — featuring Clinical Scheduling, Digital Health Records, 3D Odontogram, Panoramic X-Ray Reports, Sterilization Tracking, and Fast Triage Registration — where users learn how to navigate and customize the system by interacting with real UI elements.
 
-### Demonstração Online (Live Demo)
-Acesse a aplicação rodando diretamente no navegador:
-**[https://SEU-USUARIO.github.io/v-tutorial-showcase/](https://SEU-USUARIO.github.io/v-tutorial-showcase/)**
-
----
-
-## Recursos do `v-tutorial` Demonstrados
-
-* **Componentes Declarativos (`<TutorialProvider>` e `<VTutorialStep>`):** Definição limpa do fluxo de treinamento diretamente no template (`src/components/TutorialSistec.vue`).
-* **Passos Interativos Reais (`mode="wait-click"`):** O tutorial aguarda o usuário clicar no botão, link ou menu real da aplicação antes de avançar.
-* **Responsividade Mobile-First (`breakpoints`, `target-md`, `placement-md`):**
-  * Em telas móveis (`<= 768px`), exibe um passo exclusivo ensinando a abrir a aba deslizante lateral (`.super-slim-slider`) e utiliza posicionamento em `bottom-sheet` / `top-sheet`.
-  * No desktop (`md+`), desabilita automaticamente passos exclusivos de celular e adapta os alvos e posicionamentos para a barra lateral.
-* **Sincronização com Vue Router (`route` e `rollback-route`):** Navegação automática entre a Recepção (`/`), os Módulos Clínicos (`/sistema/:id`) e a Ficha de Triagem (`/report`), garantindo que voltar um passo restaure a rota e o estado anterior.
-* **Ações Registradas (`registerAction`):** Orquestração de estado entre componentes independentes (`openUserMenu`, `closeUserMenu`, `setSidebarExpanded`, `openThemeModal`, `closeThemeModal` e `openFirstSystemIfHome`).
-* **Hooks de Ciclo de Vida (`onFinish` e `onStop`):** Limpeza automática de modais e celebração com fogos de artifício (`@fireworks-js/vue`) ao concluir o treinamento.
+### Live Demo
+Try the interactive guided tour directly in your browser:
+**[https://marlon-bento.github.io/v-tutorial-showcase/](https://marlon-bento.github.io/v-tutorial-showcase/)**
 
 ---
 
-## Destaques da Interface (OdontoTec)
+## `v-tutorial` Features Demonstrated
 
-* **5 Estilos de Layout em Tempo Real:** Alterne entre *Flutuante (Padrão)*, *Tela Cheia*, *Integrado*, *Cristal (Glassmorphism)* e *Dock Compacto*.
-* **2 Modos de Abertura da Sidebar no Desktop:** Expansão automática ao passar o mouse (*Hover*) ou acionamento por botão de seta lateral (*Clique*), além de reordenação de módulos com Drag-and-Drop (`vuedraggable`).
-* **Temas Dinâmicos:** Modo Claro/Escuro, 12 cores primárias de destaque e 5 escalas de cinza persistidas no `localStorage`.
-* **Gatilho Flutuante Permanente (FAB):** Botão rápido no canto inferior direito para reiniciar e testar o tutorial a qualquer momento.
+* **Declarative Step Architecture (`<TutorialProvider>` & `<VTutorialStep>`):** All 11 onboarding steps are declaratively defined in `src/components/TutorialSistec.vue`.
+* **Real User Interaction (`mode="wait-click"`):** Action steps wait for the user to actually click or tap the highlighted UI buttons, links, or profile menus before advancing.
+* **Mobile-First Responsive Breakpoints (`breakpoints`, `target-md`, `placement-md`):**
+  * On mobile viewports (`<= 768px`), an exclusive step teaches users how to open the lateral pull-tab drawer (`.super-slim-slider`), using `bottom-sheet` and `top-sheet` placements.
+  * On desktop viewports (`md+`), mobile-only steps are automatically disabled (`disabled: true`) and targets/placements adapt seamlessly to the desktop sidebar.
+* **Router-Aware Navigation (`route` & `rollback-route`):** Automatically synchronizes steps across the Reception Dashboard (`/`), Clinical Modules (`/sistema/:id`), and Triage Form (`/report`), restoring previous routes if the user steps backward.
+* **Cross-Component Registered Actions (`registerAction`):** Orchestrates UI state across decoupled components (`openUserMenu`, `closeUserMenu`, `setSidebarExpanded`, `openThemeModal`, `closeThemeModal`, and `openFirstSystemIfHome`).
+* **Lifecycle Hooks (`onFinish` & `onStop`):** Automatically cleans up open modals/drawers and triggers a fireworks celebration (`@fireworks-js/vue`) upon completion.
 
 ---
 
-## Estrutura Principal do Projeto
+## UI & Workspace Highlights (OdontoTec)
+
+* **5 Real-Time Workspace Layouts:** Switch instantaneously between *Floating (Default)*, *Full Screen*, *Integrated*, *Crystal (Glassmorphism)*, and *Compact Dock*.
+* **2 Desktop Sidebar Modes:** Automatic expansion on mouse *Hover* or manual toggle via the *Lateral Arrow Button*, complete with drag-and-drop module reordering (`vuedraggable`).
+* **Dynamic Theme Engine:** Light/Dark mode, 12 primary accent colors, and 5 base grayscale palettes persisted in `localStorage`.
+* **Global Floating Trigger (FAB):** A persistent floating action button in the bottom-right corner allows restarting and testing the guided tour from any screen whenever the tutorial is inactive.
+
+---
+
+## Project Structure
 
 ```text
 src/
 ├── components/
-│   ├── TutorialSistec.vue        # Definição declarativa dos 11 passos do tutorial
-│   ├── ModalConfig.vue           # Modal de aparência, layouts e reinício do treinamento
-│   ├── SidebarComponent.vue      # Barra lateral responsiva (Desktop + Gaveta Mobile)
-│   └── UserInfo.vue              # Menu da profissional (Modal no Desktop / Bottom-Sheet no Mobile)
+│   ├── TutorialSistec.vue        # Declarative definition of the 11-step guided tour & global FAB
+│   ├── ModalConfig.vue           # Appearance, layout style, sidebar mode & tutorial restart modal
+│   ├── SidebarComponent.vue      # Responsive sidebar orchestrator (Desktop + Mobile Drawer)
+│   └── UserInfo.vue              # Professional profile menu (Desktop Modal / Mobile Bottom-Sheet)
 ├── composables/
-│   ├── useTutorialSistec.ts      # Registro de ações, hooks onFinish/onStop e fogos de artifício
-│   ├── useSidebar.ts             # Estado da sidebar, drag-and-drop e integração com v-tutorial
-│   └── sistemas.ts               # Dados fictícios dos módulos odontológicos
+│   ├── useTutorialSistec.ts      # Action registrations, onFinish/onStop hooks & fireworks control
+│   ├── useSidebar.ts             # Sidebar state, drag-and-drop persistence & v-tutorial integration
+│   └── sistemas.ts               # Mock clinical data for dental modules and appointments
 ├── stores/
-│   ├── layoutStore.ts            # Controle dos 5 estilos de layout e abertura do menu
-│   └── theme.ts                  # Controle de tema claro/escuro e paleta de cores
+│   ├── layoutStore.ts            # State management for the 5 layout styles and sidebar behavior
+│   └── theme.ts                  # Light/Dark mode and color scheme persistence
 └── views/
-    ├── HomeView.vue              # Painel da recepção clínica
-    ├── SistemasView.vue          # Tabela de atendimentos e prontuários por módulo
-    └── ReportView.vue            # Formulário rápido de triagem e anamnese
+    ├── HomeView.vue              # Clinical reception dashboard and daily indicators
+    ├── SistemasView.vue          # Dynamic module table for appointments and clinical records
+    └── ReportView.vue            # Fast clinical triage and anamnesis registration form
+```
+
+---
+
+## Getting Started Locally
+
+1. Clone the repository
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## Author
+
+Developed by **[Márlon Bento Azevedo](https://github.com/marlon-bento)**.
+
+## License
+
+Released under the MIT License.
